@@ -1,0 +1,77 @@
+{
+  "scopeName": "source.netstat",
+  "patterns": [
+    {
+      "match": "^(Active Connections.+)( l )(.+)( e )(.+)( c )(.+)( t )(.+)$",
+      "captures": {
+        "1": {
+          "name": "comment.line"
+        },
+        "2": {
+          "name": "keyword"
+        },
+        "4": {
+          "name": "keyword"
+        },
+        "6": {
+          "name": "keyword"
+        },
+        "8": {
+          "name": "keyword"
+        }
+      }
+    },
+    {
+      "match": "^(.+)( k )(.+)( s )(.+)( q )(.+Monitoring Ports: )(All|[0-9,]+)",
+      "captures": {
+        "1": {
+          "name": "comment.line"
+        },
+        "2": {
+          "name": "keyword"
+        },
+        "3": {
+          "name": "comment.line"
+        },
+        "4": {
+          "name": "keyword"
+        },
+        "5": {
+          "name": "comment.line"
+        },
+        "6": {
+          "name": "keyword"
+        },
+        "7": {
+          "name": "comment.line"
+        },
+        "8": {
+          "name": "keyword"
+        }
+      }
+    },
+    {
+      "match": "^(  Proto  Local Address          Foreign Address        State           PID)$",
+      "captures": {
+        "1": {
+          "name": "string"
+        }
+      }
+    },
+    {
+      "match": "^(?:  TCP    [^ ]+:)([0-9]+)(?:.+)(LISTENING       |TIME_WAIT       |CLOSE_WAIT      |ESTABLISHED     )([0-9]+)$",
+      "captures": {
+        "1": {
+          "name": "keyword"
+        },
+        "2": {
+          "name": "keyword"
+        }
+        ,
+        "3": {
+          "name": "variable.other"
+        }
+      }
+    }
+  ]
+}
